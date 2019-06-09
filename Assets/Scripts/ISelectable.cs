@@ -1,13 +1,19 @@
-﻿using System.Collections;
+﻿/*
+ * Author: Emanuel Misztal
+ * 2019
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public interface ISelectable
 {
-    int HP { get; set; }
-    string Name { get; set; }
-    int Damage { get; set; }
-    string GetDesc();
-    void OnRayCastHit();
-    void OnRayCastMiss();
+    // for:
+    int HP { get; set; } // storing health points
+    string Name { get; set; } // storing name
+    int Damage { get; set; } // for storing damage
+    string GetDesc(); // to get description
+    void OnRayCastHit(); // when raycast hit
+    void OnRayCastMiss(); // when raycast missed
 }

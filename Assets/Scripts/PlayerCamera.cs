@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+ * Author: Emanuel Misztal
+ * 2019
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +19,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void Awake()
     {
+        // check if camera is set properly
         if (borderWidth > 100 || borderWidth < 1) Debug.LogError("Wrong camera setting: border width (should be between 1 and 100)");
         else
         {

@@ -1,15 +1,20 @@
-﻿using System.Collections;
+﻿/*
+ * Author: Emanuel Misztal
+ * 2019
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public List<Enemy> enemies = new List<Enemy>();
+    public List<Enemy> enemies = new List<Enemy>(); // link to all enemies
 
     private static EnemyManager instance; // link to this singleton instance
-    private float timer;
 
-    public int GetEnemyCount() { return enemies.Count; }
+    // partial interface for enemies count
+    public int GetEnemyCount() { return enemies.Count; } // return how many enemies are there
 
     // return singleton instance
     public static EnemyManager GetInstance
@@ -20,8 +25,8 @@ public class EnemyManager : MonoBehaviour
 
             if (instance == null) // if no singleton exists, create new one
             {
-                GameObject newGameObj = new GameObject("EnemyManager");
-                instance = newGameObj.AddComponent<EnemyManager>();
+                GameObject newGameObj = new GameObject("EnemyManager"); // create new GameObject named EnemyManager
+                instance = newGameObj.AddComponent<EnemyManager>(); // add EnemyManager script component to new object
             }
 
             return instance; // return this singleton instance
@@ -36,13 +41,13 @@ public class EnemyManager : MonoBehaviour
     // add enemy to list
     public void AddEnemy(Enemy _addedEnemy)
     {
-        if (!enemies.Contains(_addedEnemy)) enemies.Add(_addedEnemy);
+        if (!enemies.Contains(_addedEnemy)) enemies.Add(_addedEnemy); // if enemy wasn't in list
     }
 
     // remove enemy from list
     public void RemoveEnemy(Enemy _removeEnemy)
     {
-        if (enemies.IndexOf(_removeEnemy) > -1) enemies.RemoveAt(enemies.IndexOf(_removeEnemy));
+        if (enemies.IndexOf(_removeEnemy) > -1) enemies.RemoveAt(enemies.IndexOf(_removeEnemy)); // if enemy is on a list, remove it
     }
 
     private void Update()
